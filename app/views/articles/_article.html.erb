@@ -1,4 +1,4 @@
-<div class="card text-white bg-dark mb-3" style="width: 32rem;">
+<div id="delete-article" class="card text-white bg-dark mb-3" style="width: 32rem;">
   <div class="card-body">
     <h4 class="card-title"><%= article.title %></h4>
     <h6 class="card-subtitle mb-3 text-muted"><small><%= time_ago_in_words article.created_at %> ago</small></h6>
@@ -9,7 +9,7 @@
       </button>
       <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
         <%= link_to 'Edit', edit_article_path(article), class:"dropdown-item" %>
-        <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?', remote: true }, class: "delete-article", class:"dropdown-item" %>
+        <%= link_to 'Destroy', article, remote: true, method: :delete, data: { confirm: 'Are you sure?' }, id: "delete-article", class:"dropdown-item" %>
       </div>
     </div>  
   </div>
