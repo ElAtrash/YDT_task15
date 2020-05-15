@@ -24,6 +24,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
+      ActionCable.server.broadcast('notification_channel', "New Article #{@article.title} has been created")
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
         format.js
       else
@@ -35,10 +36,11 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
+        ActionCable.server.broadcast('notification_channel', "The Article #{@article.title} has been updated")
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
         format.js
       else
-        format.html { render :show }
+        format.html { render :edit }
       end
     end
   end
@@ -46,6 +48,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
     respond_to do |format|
+      ActionCable.server.broadcast('notification_channel', "The Article #{@article.title} has been deleted")
       format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
       format.js
     end
