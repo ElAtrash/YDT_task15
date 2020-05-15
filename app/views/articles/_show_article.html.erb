@@ -6,8 +6,7 @@
   <%= @article.body %>
 </p>
 
-<div id="edit-article">
+<div id="edit-article" class="mb-2">
   <%= link_to 'Edit', edit_article_path(@article), remote: true, class: "btn btn-sm btn-danger", style: "background-color: #EB5E55;" %>
 </div>
-<br />
 <%= link_to 'Back', articles_path,class: "btn btn-sm btn-danger", style: "background-color: #EB5E55;" %>
