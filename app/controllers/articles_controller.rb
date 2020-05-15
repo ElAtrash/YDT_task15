@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-      ActionCable.server.broadcast('notification_channel', "New Article #{@article.title} has been created")
+        ActionCable.server.broadcast('notification_channel', "New Article #{@article.title} has been created")
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
         format.js
       else
@@ -41,6 +41,7 @@ class ArticlesController < ApplicationController
         format.js
       else
         format.html { render :edit }
+        format.js
       end
     end
   end
