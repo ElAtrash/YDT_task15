@@ -1,5 +1,7 @@
-<h1>New Article</h1>
+<div class="container">
+  <h1>New Article</h1>
 
-<%= render 'form', article: @article %>
+  <%= render 'form', article: @article %>
 
-<%= link_to 'Back', articles_path %>
+  <%= link_to 'Back', articles_path, class: "btn btn-danger btn-sm mt-2", style: "background-color: #EB5E55;" %>
+</div>
