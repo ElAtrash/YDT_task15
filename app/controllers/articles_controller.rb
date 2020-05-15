@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def index
-    @articles = Article.where('created_at >= ?', 1.week.ago)
+    @articles = Article.where('created_at >= ?', 1.week.ago).reverse
     respond_to do |format|
       format.html
       format.js
