@@ -2,7 +2,7 @@
   <div class="card-body">
     <h4 class="card-title"><%= article.title %></h4>
     <h6 class="card-subtitle mb-3 text-muted"><small><%= time_ago_in_words article.created_at %> ago</small></h6>
-    <p class="card-text"><%= article.body %></p>
+    <p class="card-text" style="text-align: justify"><%= truncate article.body, length: 255 %></p>
     <%= link_to 'Show', article, class: "btn btn-danger btn-sm", style: "background-color: #EB5E55;" %>
     <div class="btn-group" role="group">
       <button id="btnGroupDrop1" type="button" class="btn btn-outline-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
